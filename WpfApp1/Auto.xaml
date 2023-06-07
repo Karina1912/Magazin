@@ -1,0 +1,70 @@
+﻿<Page x:Class="WpfApp1.Auto"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Auto" Background="White">
+
+    <Grid>
+        <Border Height="200" Margin="94,0,401,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Авторизируйтесь" Grid.Row="0" TextAlignment="Center" FontSize="16" FontWeight='Bold' FontFamily="Comic Sans MS" Foreground="#FF498C51" Grid.ColumnSpan="2"/>
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="55"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Логин" FontSize="14" FontFamily="Comic Sans MS" VerticalAlignment="Center" Grid.Column="0" Foreground="#FF498C51"/>
+                    <TextBox Grid.Column="1" Height="30" BorderBrush="#FF498C51" Name="tbxLogin" Foreground="#FF498C51" Margin="0,5,31,5"/>
+                </Grid>
+                <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="55"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Пароль" FontSize="14" FontFamily="Comic Sans MS" VerticalAlignment="Center" Grid.Column="0" Foreground="#FF498C51"/>
+                    <TextBox Grid.Column="1" Height="30" BorderBrush="#FF498C51" Name="tbxPassword" Foreground="#FF498C51" Margin="0,5,30,5" />
+                </Grid>
+                <Button Name="open" Visibility="Visible" Click="btnAuto" Grid.Row="3" Width="150" Content="Войти" Margin="75,8,63,6" Background="#FF76E383"/>
+                <TextBlock Grid.Row="4" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Comic Sans MS" Grid.ColumnSpan="2" Margin="0,12,0,11"><Hyperlink NavigateUri="gosti.xaml" Click="urlGost"><Run Text="Войдите как гость"/></Hyperlink></TextBlock>
+            </Grid>
+        </Border>
+        <Image Source="logo.png" HorizontalAlignment="Right" Height="200" Margin="0,0,100,0" x:Name="img1"/>
+        <Border Height="200" Margin="404,0,91,0" Visibility="Hidden" Name="brd_Capcha">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Height="1" BorderBrush="#FF498C51" IsEnabled="False" Panel.ZIndex="1" Margin="26,33,213,86" RenderTransformOrigin="0.5,0.5">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-16.916"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <TextBox x:Name="pictureBox1"  Width="250" Height="100" IsEnabled="False" BorderBrush="#FF498C51" TextDecorations="Strikethrough" Foreground="#FF498C51" FontSize="30"/>
+                <TextBox Grid.Row="1" Width="250" Height="20" Name="Capcha" BorderBrush="#FF498C51"/>
+                <Button Content="Ок" Click="btnCheck_Kapcha" Height="26" Width="100" Grid.Column="1" Grid.Row="2" Background="#FF76E383"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
